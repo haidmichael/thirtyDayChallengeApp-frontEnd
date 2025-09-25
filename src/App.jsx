@@ -1,10 +1,17 @@
-import { Button } from "@/components/button"
+import { BrowserRouter, Routes, Route } from "react-router"
+import { DashboardPage } from "./pages/DashboardPage"
+import { UserProfilePage } from "./pages/UserProfilePage"
+import { Header } from "./components/Header"
 
 function App() {
   return (
-    <div className="flex min-h-svh flex-col items-center justify-center">
-      <Button>Click me</Button>
-    </div>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<DashboardPage />} />
+        <Route path="/userprofile" element={<UserProfilePage/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
