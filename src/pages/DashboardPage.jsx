@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router";
 export function DashboardPage() {
   return (
     <>
-        <div>Dashboard</div>
-        <Button>Mike</Button>
+        <div>Dashboard Place holder</div>
+        <Button>Push Me</Button>
     </>
   )
 }
