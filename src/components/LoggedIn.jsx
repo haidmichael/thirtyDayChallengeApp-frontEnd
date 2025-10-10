@@ -2,12 +2,14 @@ import { Button } from "@/components/Button"
 import { Link } from "react-router"
 import { loginUser } from "@/api/api"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from 'react-hot-toast';
 
 export const LoggedIn = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [isShown, setIsShown] = useState(false) // For Showing Password
-
+    const navigate = useNavigate() // Redirect once logged in to dashboard
     const togglePassword = () => {
         setIsShown((isShown) => !isShown)
     }
@@ -19,7 +21,9 @@ export const LoggedIn = () => {
             console.log('hi on click')
             const data = await loginUser({ email, password })
             console.log('Login Success: ', data)
-            
+            navigate('/workouttimer')
+
+            toast('You are now Logged In....!')
         } catch (error) {
             console.error('Login Failed: ', error.message)
         }
@@ -27,14 +31,14 @@ export const LoggedIn = () => {
 
     const handleEmailChange = (e) => {
         e.preventDefault() 
-        console.log('Change', e.target.value)
+        // console.log('Email: ', e.target.value)
         setEmail(e.target.value)
 
     }
 
     const handlePasswordChange = (e) => {
         e.preventDefault() 
-        console.log('Password: ', e.target.value)
+        // console.log('Password: ', e.target.value)
         setPassword(e.target.value)
     }
 
@@ -77,6 +81,7 @@ export const LoggedIn = () => {
                         {/* <button>Log In</button> */}
                     </div>
                     <Link to='/register'>Register Here!</Link>
+                    <Toaster />
                 </div>
             </div>
         </>
