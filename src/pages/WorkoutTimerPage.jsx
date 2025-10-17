@@ -8,6 +8,8 @@ export const WorkoutTimer = () => {
   const [timeRemaining, setTimeRemaining] = useState(initialTimeInSeconds)
   const [isRunning, setIsRunning] = useState(false)
 
+  const combined = `${isRunning}-${timeRemaining}`
+
   useEffect(() => {
     let timerInterval
 
@@ -21,10 +23,13 @@ export const WorkoutTimer = () => {
       // Optionally trigger a sound or notification when time runs out
     //   alert("Workout completed...!")
       toast('Workout Completed...!')
+      console.log('Mike')
+
+    // When the timer hit 0, a text box that says Done! 
     }
 
     return () => clearInterval(timerInterval) // Cleanup on unmount or re-render
-  }, [isRunning, timeRemaining])
+  }, [combined])
 
   const startTimer = () => {
     setIsRunning(true)
@@ -55,7 +60,7 @@ export const WorkoutTimer = () => {
                 <Button onClick={pauseTimer} disabled={!isRunning}>Pause</Button>
                 <Button onClick={resetTimer}>Reset</Button>
             </div>
-            <Toaster
+            {/* <Toaster
                 toastOptions={{
                     className: '',
                     style: {
@@ -67,7 +72,7 @@ export const WorkoutTimer = () => {
                 containerStyle={{
                     position: 'relative',
                 }}
-            />
+            /> */}
       </div>
     </div>
   )

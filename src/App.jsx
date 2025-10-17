@@ -5,6 +5,7 @@ import { Header } from "./components/Header"
 import { LoggedIn } from "./components/LoggedIn"
 import { Register } from "./components/Register"
 import { WorkoutTimer } from "./pages/WorkoutTimerPage"
+import { Toaster }from "react-hot-toast"
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
         <Route path="/register" element={<Register/>} />
         <Route path="/workouttimer" element={<WorkoutTimer/>} />
       </Routes>
-      {/* <Toaster /> */}
+      <Toaster />
     </BrowserRouter>
   )
 }

@@ -81,7 +81,7 @@ export const LoggedIn = () => {
                         {/* <button>Log In</button> */}
                     </div>
                     <Link to='/register'>Register Here!</Link>
-                    <Toaster />
+                    {/* <Toaster /> */}
                 </div>
             </div>
         </>
